@@ -1,4 +1,3 @@
-// import { Badge } from "antd"
 import Cashback from "../../assets/category/cashback.svgfill.png"
 import Ranking from "../../assets/category/Race.png"
 import Video from "../../assets/category/Video.png"
@@ -33,13 +32,6 @@ export default function Categories() {
               <span className="text-[10px] leading-[12px] break-words font-medium md:text-sm md:font-normal uppercase">
                 {category.label}
               </span>
-              {/* {category.label === "New NFTs" && (
-            <Badge
-              count="NEW"
-              style={{ backgroundColor: "#f5222d" }}
-              className="absolute top-[-5px] right-[-15px]"
-            />
-          )} */}
             </div>
           ))}
         </div>

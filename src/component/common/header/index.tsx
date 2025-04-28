@@ -1,5 +1,4 @@
 import { Dropdown } from "antd"
-// import { MenuOutlined, CloseOutlined } from "@ant-design/icons"
 import { useState, useRef } from "react"
 import { Link, useLocation } from "react-router-dom"
 import logo from "../../../assets/logo.svg.png"
@@ -28,7 +27,6 @@ export default function Header() {
 
   return (
     <header className="w-full flex justify-between items-center px-5 py-3 md:px-10 md:py-5 bg-primary-black shadow-md">
-      {/* Left: Dropdown + Logo */}
       <div className="flex items-center gap-4">
         {/* Mobile Dropdown */}
         <div className="flex lg:hidden">
@@ -106,7 +104,7 @@ export default function Header() {
                 className={`flex items-center h-10 py-3 text-sm uppercase font-medium transition-colors border-b md:border-none ${
                   isActive
                     ? "bg-[#383A42] text-primary px-[18px] py-2.5 rounded-[100px] hover:text-primary"
-                    : "text-gray-700 hover:text-primary"
+                    : "text-white hover:text-primary"
                 }`}
                 onClick={() => setOpen(false)}
               >
@@ -117,7 +115,6 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Right side: Buttons */}
       <div className="flex items-center gap-2">
         <Button>Sign Up</Button>
         <Button secondary>Log In</Button>

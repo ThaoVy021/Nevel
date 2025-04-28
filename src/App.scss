@@ -4,12 +4,17 @@
   margin: 0;
   padding: 0;
   text-align: initial;
+  background-color: #1f1f1f;
 }
 
 .layout-container {
   width: 100%;
   max-width: 1128px;
   margin: 0 auto;
+}
+
+.ant-layout-footer {
+  padding: 0;
 }
 
 .dropdown-content {
@@ -23,4 +28,23 @@
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
+}
+
+.slick-prev,
+.slick-next {
+  display: none !important;
+}
+
+.slick-list {
+  overflow: hidden;
+
+  .slick-track {
+    display: flex;
+
+    .slick-slide {
+      width: fit-content !important;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
