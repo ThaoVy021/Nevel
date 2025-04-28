@@ -33,7 +33,7 @@ const resourcesContent = [
 const Footer = () => {
   return (
     <Layout.Footer className="bg-black text-white py-10">
-      <div className="container layout-container mx-auto flex flex-wrap px-5">
+      <div className="container layout-container mx-auto flex flex-wrap pt-[40px] px-5">
         <FooterShape title="about us" content={aboutUsContent} />
         <FooterShape title="products" content={productsContent} />
         <FooterShape title="resources" content={resourcesContent} />

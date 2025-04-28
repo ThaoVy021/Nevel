@@ -59,20 +59,20 @@ const NftCarousel = ({
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: Math.min(3, nftImages.length),
+          slidesToShow: Math.min(5, nftImages.length),
           slidesToScroll: 1,
-          autoplay: nftImages.length > 3,
-          infinite: nftImages.length > 3,
+          autoplay: nftImages.length > 5,
+          infinite: nftImages.length > 5,
           fade: nftImages.length === 1,
         },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: Math.min(3.5, nftImages.length),
           slidesToScroll: 1,
-          autoplay: nftImages.length > 1,
-          infinite: nftImages.length > 1,
+          autoplay: nftImages.length > 3,
+          infinite: nftImages.length > 3,
           fade: nftImages.length === 1,
         },
       },
@@ -117,20 +117,14 @@ const NftCarousel = ({
             <img
               src={image}
               alt={`NFT ${index + 1}`}
-              className="rounded-[12px] shadow-lg w-full object-fit"
+              className="rounded-[12px] shadow-lg w-full object-cover"
               style={{
-                height: heightImageDesktop ?? "245px",
+                height:
+                  window.innerWidth <= 768
+                    ? heightImageMobile
+                    : heightImageDesktop, // Sử dụng điều kiện để set chiều cao
               }}
             />
-            <style>
-              {`
-             @media (max-width: 768px) {
-               img[alt="NFT ${index + 1}"] {
-                 height: ${heightImageMobile ?? "140px"} !important;
-               }
-             }
-           `}
-            </style>
           </div>
         ))}
       </Slider>
