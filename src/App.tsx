@@ -1,9 +1,16 @@
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "./pages/home"
+import Items1 from "./pages/items1"
+import Header from "./component/common/header"
+
+export default function App() {
   return (
-    <div className="text-3xl font-bold underline text-red-500">
-      Hello TailwindCSS + Vite!
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/items1" element={<Items1 />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
-
-export default App
