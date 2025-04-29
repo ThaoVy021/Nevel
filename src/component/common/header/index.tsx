@@ -54,7 +54,7 @@ export default function Header() {
                       key={item.label}
                       to={item.path}
                       onClick={() => setOpen(false)}
-                      className={`py-3 w-full text-white items-center h-[48px] flex justify-center rounded-[100px] text-lg font-semibold hover:text-primary transition-colors ${
+                      className={`py-3 w-full text-white items-center uppercase h-[48px] flex justify-center rounded-[100px] text-lg font-semibold hover:text-primary transition-colors ${
                         isActive ? " bg-[#383A42] !text-primary" : "text-white"
                       }`}
                     >

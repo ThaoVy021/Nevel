@@ -122,7 +122,7 @@ const NftCarousel = ({
                 height:
                   window.innerWidth <= 768
                     ? heightImageMobile
-                    : heightImageDesktop, // Sử dụng điều kiện để set chiều cao
+                    : heightImageDesktop,
               }}
             />
           </div>
