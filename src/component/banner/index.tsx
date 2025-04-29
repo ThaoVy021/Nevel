@@ -1,13 +1,27 @@
+import React from "react"
+import { Carousel } from "antd"
 import banner from "../../assets/banner.png"
+import "../../App.scss"
 
-export default function Banner() {
+const Banner: React.FC = () => {
+  const banners = new Array(9).fill(banner)
+
   return (
-    <div className="max-w-full">
-      <img
-        src={banner}
-        alt="Banner Nevel"
-        className="h-auto w-full object-contain"
-      />
-    </div>
+    <Carousel autoplay autoplaySpeed={23000}>
+      {banners.map((banner, index) => (
+        <div
+          key={index}
+          className="carousel-image-container flex justify-center items-center overflow-hidden"
+        >
+          <img
+            src={banner}
+            alt={`Banner ${index + 1}`}
+            className="h-[180px] md:h-[450px] w-full object-cover"
+          />
+        </div>
+      ))}
+    </Carousel>
   )
 }
+
+export default Banner

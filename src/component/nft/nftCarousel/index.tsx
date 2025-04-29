@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Slider from "react-slick"
 import Previous from "../../../assets/Previous.svg"
 import Next from "../../../assets/Next.svg"
@@ -8,8 +8,10 @@ interface NftProps {
   nftImages: string[]
   heightImageDesktop: string
   heightImageMobile: string
+  className?: string
   slidesToShow?: number
   showButton?: boolean
+  imgClassName?: string
 }
 
 const NftCarousel = ({
@@ -17,31 +19,28 @@ const NftCarousel = ({
   nftImages,
   heightImageDesktop,
   heightImageMobile,
+  className,
   slidesToShow,
   showButton,
+  imgClassName,
 }: NftProps) => {
   const sliderRef = useRef<Slider>(null)
 
-  //   useEffect(() => {
-  //     const setTransform = () => {
-  //       const slickTrack = document.querySelector(".slick-track")
-  //       console.log("firstTrack", window.innerWidth)
-  //       if (slickTrack) {
-  //         if (window.innerWidth <= 768) {
-  //           ;(slickTrack as HTMLElement).style.transform =
-  //             "translate3d(-207px, 0px, 0px)" // Mobile
-  //         } else if (window.innerWidth > 768) {
-  //           ;(slickTrack as HTMLElement).style.transform =
-  //             "translate3d(-1150px, 0px, 0px)" // Desktop
-  //         }
-  //       }
-  //     }
+  // Get the width of the window to set the height of the image
+  const [windowWidth, setWindowWidth] = useState(getWidth())
 
-  //     setTransform() // Gọi hàm lần đầu tiên
-  //     window.addEventListener("resize", setTransform) // Gọi lại khi thay đổi kích thước
+  function getWidth() {
+    return window.innerWidth
+  }
 
-  //     return () => window.removeEventListener("resize", setTransform) // Dọn dẹp
-  //   }, [])
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(getWidth())
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const settings = {
     dots: false,
@@ -80,7 +79,9 @@ const NftCarousel = ({
   }
 
   return (
-    <div className="bg-black pt-10 md:pt-20 pb-0 px-5 relative w-full">
+    <div
+      className={`bg-black pt-10 md:pt-20 pb-0 px-5 relative w-full ${className}`}
+    >
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-primary text-[24px] leading-[32px] md:text-[32px] md:leading-[48px] italic font-black uppercase">
           {title}
@@ -117,12 +118,11 @@ const NftCarousel = ({
             <img
               src={image}
               alt={`NFT ${index + 1}`}
-              className="rounded-[12px] shadow-lg w-full object-cover"
+              className={`rounded-[12px] shadow-lg w-full object-cover overflow-hidden ${imgClassName}`}
               style={{
                 height:
-                  window.innerWidth <= 768
-                    ? heightImageMobile
-                    : heightImageDesktop,
+                  // Can't use the `h-` class here because of the dynamic height
+                  windowWidth <= 768 ? heightImageMobile : heightImageDesktop,
               }}
             />
           </div>
