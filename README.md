@@ -1,6 +1,7 @@
 # React + TypeScript + Vite
 
 This project is a minimal React + TypeScript + Vite setup, built as a coding assignment for Nevel Tech by <b>Luu Thanh Thao Vy</b>. It demonstrates modern frontend practices with a focus on performance, scalability, and clean code.
+I have deployed to this site: https://nevel-one.vercel.app
 
 ---
 
