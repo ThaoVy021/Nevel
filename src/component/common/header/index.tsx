@@ -1,5 +1,5 @@
 import { Menu } from "antd"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import logo from "../../../assets/logo.svg.png"
 import OpenMenu from "../../../assets/openMenu.png"
@@ -20,6 +20,14 @@ export default function Header() {
   const { pathname } = location
 
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("overflow-hidden")
+    } else {
+      document.body.classList.remove("overflow-hidden")
+    }
+  }, [open])
 
   return (
     <header className="w-full flex justify-between items-center px-5 py-3 md:px-10 md:py-5 bg-black shadow-md">

@@ -71,9 +71,10 @@
   width: 28px;
   height: 4px;
   border-radius: 20px;
-}
-.ant-carousel .slick-dots li button {
-  background: theme("colors.primary.DEFAULT") !important;
+
+  &::after {
+    @apply bg-primary;
+  }
 }
 
 .ant-carousel .slick-dots-bottom {
